@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "usart_rx_abnormal", "usart_rx_abnormal\usart_rx_abnormal.cproj", "{21E3D9E0-AD31-486F-8991-354F3686C4CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21E3D9E0-AD31-486F-8991-354F3686C4CC}.Debug|AVR.ActiveCfg = Debug|AVR
+		{21E3D9E0-AD31-486F-8991-354F3686C4CC}.Debug|AVR.Build.0 = Debug|AVR
+		{21E3D9E0-AD31-486F-8991-354F3686C4CC}.Release|AVR.ActiveCfg = Release|AVR
+		{21E3D9E0-AD31-486F-8991-354F3686C4CC}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

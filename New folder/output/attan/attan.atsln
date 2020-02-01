@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "attan", "attan\attan.cproj", "{373888CC-071F-46E3-A53A-E45801D1D8E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{373888CC-071F-46E3-A53A-E45801D1D8E4}.Debug|AVR.ActiveCfg = Debug|AVR
+		{373888CC-071F-46E3-A53A-E45801D1D8E4}.Debug|AVR.Build.0 = Debug|AVR
+		{373888CC-071F-46E3-A53A-E45801D1D8E4}.Release|AVR.ActiveCfg = Release|AVR
+		{373888CC-071F-46E3-A53A-E45801D1D8E4}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

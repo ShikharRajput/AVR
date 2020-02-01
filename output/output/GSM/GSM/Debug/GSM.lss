@@ -1,0 +1,345 @@
+
+GSM.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000019e  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000004a  00800060  0000019e  00000212  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .stab         000006cc  00000000  00000000  0000025c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000085  00000000  00000000  00000928  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000080  00000000  00000000  000009b0  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000051d  00000000  00000000  00000a30  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000001a2  00000000  00000000  00000f4d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000038c  00000000  00000000  000010ef  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000084  00000000  00000000  0000147c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000121  00000000  00000000  00001500  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000000b8  00000000  00000000  00001621  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ee e9       	ldi	r30, 0x9E	; 158
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	aa 3a       	cpi	r26, 0xAA	; 170
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	aa ea       	ldi	r26, 0xAA	; 170
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	aa 3a       	cpi	r26, 0xAA	; 170
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 a2 00 	call	0x144	; 0x144 <main>
+  8a:	0c 94 cd 00 	jmp	0x19a	; 0x19a <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <usart_init>:
+#include <util/delay.h>
+
+
+void usart_init()
+{
+	UCSRB = UCSRB |1<<TXEN;
+  92:	53 9a       	sbi	0x0a, 3	; 10
+	UCSRC = UCSRC | 1<<URSEL | 1<< UCSZ0 | 1<< UCSZ1;
+  94:	80 b5       	in	r24, 0x20	; 32
+  96:	86 68       	ori	r24, 0x86	; 134
+  98:	80 bd       	out	0x20, r24	; 32
+	UBRRL = 51;
+  9a:	83 e3       	ldi	r24, 0x33	; 51
+  9c:	89 b9       	out	0x09, r24	; 9
+	
+	
+}
+  9e:	08 95       	ret
+
+000000a0 <TX_string>:
+
+void TX_string(char *x)
+{
+  a0:	fc 01       	movw	r30, r24
+	while(*x)
+  a2:	80 81       	ld	r24, Z
+  a4:	88 23       	and	r24, r24
+  a6:	69 f0       	breq	.+26     	; 0xc2 <TX_string+0x22>
+	UBRRL = 51;
+	
+	
+}
+
+void TX_string(char *x)
+  a8:	31 96       	adiw	r30, 0x01	; 1
+{
+	while(*x)
+	{
+		UDR = *x;
+  aa:	8c b9       	out	0x0c, r24	; 12
+		while((UCSRA &(1<< UDRE))==0){}
+  ac:	5d 9b       	sbis	0x0b, 5	; 11
+  ae:	fe cf       	rjmp	.-4      	; 0xac <TX_string+0xc>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  b0:	87 ea       	ldi	r24, 0xA7	; 167
+  b2:	91 e6       	ldi	r25, 0x61	; 97
+  b4:	01 97       	sbiw	r24, 0x01	; 1
+  b6:	f1 f7       	brne	.-4      	; 0xb4 <TX_string+0x14>
+  b8:	00 c0       	rjmp	.+0      	; 0xba <TX_string+0x1a>
+  ba:	00 00       	nop
+	
+}
+
+void TX_string(char *x)
+{
+	while(*x)
+  bc:	81 91       	ld	r24, Z+
+  be:	88 23       	and	r24, r24
+  c0:	a1 f7       	brne	.-24     	; 0xaa <TX_string+0xa>
+  c2:	08 95       	ret
+
+000000c4 <GSM_call>:
+	}		
+}
+
+void GSM_call()
+{
+	TX_string("ATD7503169933;\r");
+  c4:	80 e6       	ldi	r24, 0x60	; 96
+  c6:	90 e0       	ldi	r25, 0x00	; 0
+  c8:	0e 94 50 00 	call	0xa0	; 0xa0 <TX_string>
+	PORTA = 0x02;
+  cc:	82 e0       	ldi	r24, 0x02	; 2
+  ce:	8b bb       	out	0x1b, r24	; 27
+}
+  d0:	08 95       	ret
+
+000000d2 <GSM_hang>:
+
+void GSM_hang()
+{
+	TX_string("ATH\r");
+  d2:	80 e7       	ldi	r24, 0x70	; 112
+  d4:	90 e0       	ldi	r25, 0x00	; 0
+  d6:	0e 94 50 00 	call	0xa0	; 0xa0 <TX_string>
+	PORTA = 0x00;
+  da:	1b ba       	out	0x1b, r1	; 27
+}
+  dc:	08 95       	ret
+
+000000de <GSM_message>:
+
+void GSM_message()
+{
+  de:	cf 93       	push	r28
+  e0:	df 93       	push	r29
+  e2:	0f 92       	push	r0
+  e4:	cd b7       	in	r28, 0x3d	; 61
+  e6:	de b7       	in	r29, 0x3e	; 62
+	char ctrlz[]= {26};
+  e8:	8a e1       	ldi	r24, 0x1A	; 26
+  ea:	89 83       	std	Y+1, r24	; 0x01
+	TX_string("AT+CMGF=1\r");
+  ec:	85 e7       	ldi	r24, 0x75	; 117
+  ee:	90 e0       	ldi	r25, 0x00	; 0
+  f0:	0e 94 50 00 	call	0xa0	; 0xa0 <TX_string>
+  f4:	8f e9       	ldi	r24, 0x9F	; 159
+  f6:	96 e8       	ldi	r25, 0x86	; 134
+  f8:	a1 e0       	ldi	r26, 0x01	; 1
+  fa:	81 50       	subi	r24, 0x01	; 1
+  fc:	90 40       	sbci	r25, 0x00	; 0
+  fe:	a0 40       	sbci	r26, 0x00	; 0
+ 100:	e1 f7       	brne	.-8      	; 0xfa <GSM_message+0x1c>
+ 102:	00 c0       	rjmp	.+0      	; 0x104 <GSM_message+0x26>
+ 104:	00 00       	nop
+	_delay_ms(500);
+//	PORTA = 0x04;
+	TX_string("AT+CMGS=\"9990480092\"\r");
+ 106:	80 e8       	ldi	r24, 0x80	; 128
+ 108:	90 e0       	ldi	r25, 0x00	; 0
+ 10a:	0e 94 50 00 	call	0xa0	; 0xa0 <TX_string>
+ 10e:	8f e7       	ldi	r24, 0x7F	; 127
+ 110:	9a e1       	ldi	r25, 0x1A	; 26
+ 112:	a6 e0       	ldi	r26, 0x06	; 6
+ 114:	81 50       	subi	r24, 0x01	; 1
+ 116:	90 40       	sbci	r25, 0x00	; 0
+ 118:	a0 40       	sbci	r26, 0x00	; 0
+ 11a:	e1 f7       	brne	.-8      	; 0x114 <GSM_message+0x36>
+ 11c:	00 c0       	rjmp	.+0      	; 0x11e <GSM_message+0x40>
+ 11e:	00 00       	nop
+	_delay_ms(2000);
+	TX_string("Pick your phone");
+ 120:	86 e9       	ldi	r24, 0x96	; 150
+ 122:	90 e0       	ldi	r25, 0x00	; 0
+ 124:	0e 94 50 00 	call	0xa0	; 0xa0 <TX_string>
+ 128:	af e4       	ldi	r26, 0x4F	; 79
+ 12a:	b3 ec       	ldi	r27, 0xC3	; 195
+ 12c:	11 97       	sbiw	r26, 0x01	; 1
+ 12e:	f1 f7       	brne	.-4      	; 0x12c <GSM_message+0x4e>
+ 130:	00 c0       	rjmp	.+0      	; 0x132 <GSM_message+0x54>
+ 132:	00 00       	nop
+	_delay_ms(200);
+	TX_string(ctrlz);
+ 134:	ce 01       	movw	r24, r28
+ 136:	01 96       	adiw	r24, 0x01	; 1
+ 138:	0e 94 50 00 	call	0xa0	; 0xa0 <TX_string>
+	//PORTA = 0x00;
+}
+ 13c:	0f 90       	pop	r0
+ 13e:	df 91       	pop	r29
+ 140:	cf 91       	pop	r28
+ 142:	08 95       	ret
+
+00000144 <main>:
+
+
+int main(void)
+{ 
+	DDRA = 0x07;
+ 144:	87 e0       	ldi	r24, 0x07	; 7
+ 146:	8a bb       	out	0x1a, r24	; 26
+	DDRD = 0x02;
+ 148:	82 e0       	ldi	r24, 0x02	; 2
+ 14a:	81 bb       	out	0x11, r24	; 17
+	DDRB= 0x00;
+ 14c:	17 ba       	out	0x17, r1	; 23
+	usart_init();
+ 14e:	0e 94 49 00 	call	0x92	; 0x92 <usart_init>
+		
+    while(1)
+    {
+		if(PINB&(1<<0))
+		{
+			TX_string("AT\r");
+ 152:	c6 ea       	ldi	r28, 0xA6	; 166
+ 154:	d0 e0       	ldi	r29, 0x00	; 0
+			PORTA = 0x01;
+ 156:	11 e0       	ldi	r17, 0x01	; 1
+		   while(PINB&(1<<2)){}
+       }
+	   else if(PINB&(1<<3))
+       {
+	       GSM_message();
+		   PORTA=0x04;
+ 158:	04 e0       	ldi	r16, 0x04	; 4
+	//GSM_message();
+	
+		
+    while(1)
+    {
+		if(PINB&(1<<0))
+ 15a:	b0 9b       	sbis	0x16, 0	; 22
+ 15c:	08 c0       	rjmp	.+16     	; 0x16e <main+0x2a>
+		{
+			TX_string("AT\r");
+ 15e:	ce 01       	movw	r24, r28
+ 160:	0e 94 50 00 	call	0xa0	; 0xa0 <TX_string>
+			PORTA = 0x01;
+ 164:	1b bb       	out	0x1b, r17	; 27
+			while(PINB&(1<<0)){}
+ 166:	b0 99       	sbic	0x16, 0	; 22
+ 168:	fe cf       	rjmp	.-4      	; 0x166 <main+0x22>
+			PORTA = 0x00;
+ 16a:	1b ba       	out	0x1b, r1	; 27
+ 16c:	f6 cf       	rjmp	.-20     	; 0x15a <main+0x16>
+		}
+		else if(PINB&(1<<1))
+ 16e:	b1 9b       	sbis	0x16, 1	; 22
+ 170:	05 c0       	rjmp	.+10     	; 0x17c <main+0x38>
+       {
+	       GSM_call();
+ 172:	0e 94 62 00 	call	0xc4	; 0xc4 <GSM_call>
+		   while(PINB&(1<<1)){}
+ 176:	b1 99       	sbic	0x16, 1	; 22
+ 178:	fe cf       	rjmp	.-4      	; 0x176 <main+0x32>
+ 17a:	ef cf       	rjmp	.-34     	; 0x15a <main+0x16>
+       }
+	   else if(PINB&(1<<2))
+ 17c:	b2 9b       	sbis	0x16, 2	; 22
+ 17e:	05 c0       	rjmp	.+10     	; 0x18a <main+0x46>
+       {
+	       GSM_hang();
+ 180:	0e 94 69 00 	call	0xd2	; 0xd2 <GSM_hang>
+		   while(PINB&(1<<2)){}
+ 184:	b2 99       	sbic	0x16, 2	; 22
+ 186:	fe cf       	rjmp	.-4      	; 0x184 <main+0x40>
+ 188:	e8 cf       	rjmp	.-48     	; 0x15a <main+0x16>
+       }
+	   else if(PINB&(1<<3))
+ 18a:	b3 9b       	sbis	0x16, 3	; 22
+ 18c:	e6 cf       	rjmp	.-52     	; 0x15a <main+0x16>
+       {
+	       GSM_message();
+ 18e:	0e 94 6f 00 	call	0xde	; 0xde <GSM_message>
+		   PORTA=0x04;
+ 192:	0b bb       	out	0x1b, r16	; 27
+		   while(PINB&(1<<3)){}
+ 194:	b3 99       	sbic	0x16, 3	; 22
+ 196:	fe cf       	rjmp	.-4      	; 0x194 <main+0x50>
+ 198:	e0 cf       	rjmp	.-64     	; 0x15a <main+0x16>
+
+0000019a <_exit>:
+ 19a:	f8 94       	cli
+
+0000019c <__stop_program>:
+ 19c:	ff cf       	rjmp	.-2      	; 0x19c <__stop_program>

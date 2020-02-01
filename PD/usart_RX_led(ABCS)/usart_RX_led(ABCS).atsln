@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "usart_RX_led(ABCS)", "usart_RX_led(ABCS)\usart_RX_led(ABCS).cproj", "{503E26C2-DB0E-4498-8006-9EA7D13268A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{503E26C2-DB0E-4498-8006-9EA7D13268A6}.Debug|AVR.ActiveCfg = Debug|AVR
+		{503E26C2-DB0E-4498-8006-9EA7D13268A6}.Debug|AVR.Build.0 = Debug|AVR
+		{503E26C2-DB0E-4498-8006-9EA7D13268A6}.Release|AVR.ActiveCfg = Release|AVR
+		{503E26C2-DB0E-4498-8006-9EA7D13268A6}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
